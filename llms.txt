@@ -1,6 +1,6 @@
 # MGD Skid Loader Services
 
-MGD Skid Loader Services is based in Mazeppa, Minnesota and serves properties within a 50-mile radius.
+MGD Skid Loader Services is based in Mazeppa, Minnesota and serves properties within a 50-mile radius. Free estimates are available by phone or the website estimate form.
 
 ## Contact
 - Phone: 507-951-0405
@@ -15,11 +15,13 @@ MGD Skid Loader Services is based in Mazeppa, Minnesota and serves properties wi
 - Building Site Readiness: https://mgdskidloader.com/services/building-site-readiness/
 - Asphalt and Concrete Removal: https://mgdskidloader.com/services/asphalt-concrete-removal/
 - Shed Takedown and Building Site Prep: https://mgdskidloader.com/services/shed-takedown-building-site-prep/
-- 6"-24" Hole Drilling: https://mgdskidloader.com/services/post-hole-drilling/
+- 6"–24" Hole Drilling: https://mgdskidloader.com/services/post-hole-drilling/
 
-## Core pages
-- Service area: https://mgdskidloader.com/service-area/
-- Customer reviews: https://mgdskidloader.com/reviews/
-- Contact / estimate request: https://mgdskidloader.com/contact/
-- Privacy: https://mgdskidloader.com/privacy/
-- Terms: https://mgdskidloader.com/terms/
+## Service area
+MGD serves properties within 50 miles of Mazeppa, Minnesota, including communities listed at https://mgdskidloader.com/service-area/.
+
+## Customer reviews
+Customer feedback: https://mgdskidloader.com/reviews/
+
+## Estimate requests
+Contact and estimate form: https://mgdskidloader.com/contact/

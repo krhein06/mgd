@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://mgdskidloader.com/</loc></url>
-  <url><loc>https://mgdskidloader.com/services/</loc></url>
-  <url><loc>https://mgdskidloader.com/service-area/</loc></url>
-  <url><loc>https://mgdskidloader.com/reviews/</loc></url>
-  <url><loc>https://mgdskidloader.com/contact/</loc></url>
-  <url><loc>https://mgdskidloader.com/privacy/</loc></url>
-  <url><loc>https://mgdskidloader.com/terms/</loc></url>
-  <url><loc>https://mgdskidloader.com/services/stump-grinding/</loc></url>
-  <url><loc>https://mgdskidloader.com/services/gravel-dirt-driveways/</loc></url>
-  <url><loc>https://mgdskidloader.com/services/brush-debris-removal/</loc></url>
-  <url><loc>https://mgdskidloader.com/services/building-site-readiness/</loc></url>
-  <url><loc>https://mgdskidloader.com/services/asphalt-concrete-removal/</loc></url>
-  <url><loc>https://mgdskidloader.com/services/shed-takedown-building-site-prep/</loc></url>
-  <url><loc>https://mgdskidloader.com/services/post-hole-drilling/</loc></url>
+  <url><loc>https://mgdskidloader.com/</loc><lastmod>2026-09-09</lastmod><priority>1.0</priority></url>
+  <url><loc>https://mgdskidloader.com/services/</loc><lastmod>2026-09-09</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mgdskidloader.com/service-area/</loc><lastmod>2026-09-09</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mgdskidloader.com/reviews/</loc><lastmod>2026-09-09</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mgdskidloader.com/contact/</loc><lastmod>2026-09-09</lastmod><priority>0.8</priority></url>
+  <url><loc>https://mgdskidloader.com/services/stump-grinding/</loc><lastmod>2026-09-09</lastmod><priority>0.9</priority></url>
+  <url><loc>https://mgdskidloader.com/services/gravel-dirt-driveways/</loc><lastmod>2026-09-09</lastmod><priority>0.9</priority></url>
+  <url><loc>https://mgdskidloader.com/services/brush-debris-removal/</loc><lastmod>2026-09-09</lastmod><priority>0.9</priority></url>
+  <url><loc>https://mgdskidloader.com/services/building-site-readiness/</loc><lastmod>2026-09-09</lastmod><priority>0.9</priority></url>
+  <url><loc>https://mgdskidloader.com/services/asphalt-concrete-removal/</loc><lastmod>2026-09-09</lastmod><priority>0.9</priority></url>
+  <url><loc>https://mgdskidloader.com/services/shed-takedown-building-site-prep/</loc><lastmod>2026-09-09</lastmod><priority>0.9</priority></url>
+  <url><loc>https://mgdskidloader.com/services/post-hole-drilling/</loc><lastmod>2026-09-09</lastmod><priority>0.9</priority></url>
 </urlset>
