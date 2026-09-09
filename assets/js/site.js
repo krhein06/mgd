@@ -4,9 +4,7 @@
   const imageFixes={
     '20250415_143732.webp':{file:'1000009253.webp',alt:'MGD skid loader removing asphalt at a lakeside property'},
     'skid-loader-driveway-prep.webp':{file:'20241111_170105.webp',alt:'Gravel and dirt driveway resurfaced by MGD Skid Loader Services'},
-    '20250410_153946.webp':{file:'site-grading-before.webp',alt:'MGD building site preparation work'},
-    '20250404_134326.webp':{file:'20260811_121255.webp',alt:'MGD skid loader auger drilling a hole for a post project'},
-    '20250410_141942.webp':{file:'20260811_121255.webp',alt:'MGD skid loader auger drilling a hole for a post project'}
+    '20250410_153946.webp':{file:'site-grading-before.webp',alt:'MGD building site preparation work'}
   };
   document.querySelectorAll('img').forEach(img=>{
     const match=Object.entries(imageFixes).find(([name])=>img.src.endsWith('/'+name));
@@ -27,10 +25,6 @@
     if(title==='Gravel/Dirt Driveway Resurfacing'){
       img.src=img.src.replace(/[^/]+$/,'20241111_170105.webp');
       img.alt='Gravel and dirt driveway resurfaced by MGD Skid Loader Services';
-    }
-    if(title==='6"-24" Hole Drilling'){
-      img.src=img.src.replace(/[^/]+$/,'20260811_121255.webp');
-      img.alt='MGD skid loader auger drilling a hole for a post project';
     }
   });
 
