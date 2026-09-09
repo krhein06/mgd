@@ -3,7 +3,6 @@
 
   const imageFixes={
     '20250415_143732.webp':{file:'1000009253.webp',alt:'MGD skid loader removing asphalt at a lakeside property'},
-    '20250313_171410.webp':{file:'1000009253.webp',alt:'MGD skid loader removing asphalt at a lakeside property'},
     'skid-loader-driveway-prep.webp':{file:'20241111_170105.webp',alt:'Gravel and dirt driveway resurfaced by MGD Skid Loader Services'},
     '20250410_153946.webp':{file:'site-grading-before.webp',alt:'MGD building site preparation work'},
     '20250404_134326.webp':{file:'20260811_121255.webp',alt:'MGD skid loader auger drilling a hole for a post project'},
@@ -17,17 +16,41 @@
     img.alt=fix.alt;
   });
 
+  document.querySelectorAll('.card').forEach(card=>{
+    const title=card.querySelector('h2,h3')?.textContent.trim();
+    const img=card.querySelector('img');
+    if(!img)return;
+    if(title==='Asphalt and Concrete Removal'){
+      img.src=img.src.replace(/[^/]+$/,'1000009253.webp');
+      img.alt='MGD skid loader removing asphalt at a lakeside property';
+    }
+    if(title==='Gravel/Dirt Driveway Resurfacing'){
+      img.src=img.src.replace(/[^/]+$/,'20241111_170105.webp');
+      img.alt='Gravel and dirt driveway resurfaced by MGD Skid Loader Services';
+    }
+    if(title==='6"-24" Hole Drilling'){
+      img.src=img.src.replace(/[^/]+$/,'20260811_121255.webp');
+      img.alt='MGD skid loader auger drilling a hole for a post project';
+    }
+  });
+
   if(location.pathname.includes('/services/asphalt-concrete-removal/')){
     const primary=document.querySelector('.service-detail > img');
-    if(primary && !document.querySelector('[data-asphalt-after]')){
-      const second=document.createElement('img');
-      second.src=primary.src.replace('1000009253.webp','1000009257.webp');
-      second.alt='Cleared and graded lakeside area after asphalt removal by MGD Skid Loader Services';
-      second.loading='lazy';
-      second.decoding='async';
-      second.dataset.asphaltAfter='true';
-      primary.insertAdjacentElement('afterend',second);
-      primary.parentElement.classList.add('service-detail-gallery');
+    if(primary && !document.querySelector('[data-asphalt-gallery]')){
+      const gallery=document.createElement('div');
+      gallery.dataset.asphaltGallery='true';
+      gallery.style.cssText='display:grid;grid-template-columns:1fr 1fr;gap:12px;align-self:stretch';
+      primary.replaceWith(gallery);
+      primary.loading='lazy';
+      primary.decoding='async';
+      primary.style.cssText='width:100%;height:100%;min-height:320px;object-fit:cover;border-radius:22px;box-shadow:var(--shadow)';
+      const after=document.createElement('img');
+      after.src=primary.src.replace('1000009253.webp','1000009257.webp');
+      after.alt='Cleared and graded lakeside area after asphalt removal by MGD Skid Loader Services';
+      after.loading='lazy';
+      after.decoding='async';
+      after.style.cssText=primary.style.cssText;
+      gallery.append(primary,after);
     }
   }
 
