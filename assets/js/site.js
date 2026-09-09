@@ -28,22 +28,11 @@
       img.src=img.src.replace(/[^/]+$/,'20241111_170105.webp');
       img.alt='Gravel and dirt driveway resurfaced by MGD Skid Loader Services';
     }
-    if(title==='6"-24" Hole Drilling' || title==='6”–24” Hole Drilling' || title==='6"–24" Hole Drilling'){
+    if(title==='6\"-24\" Hole Drilling' || title==='6\"–24\" Hole Drilling'){
       img.src=img.src.replace(/[^/]+$/,'20260811_121255.webp');
       img.alt='MGD skid loader auger drilling a hole for a post project';
     }
   });
-
-  if(location.pathname.includes('/services/post-hole-drilling/')){
-    document.querySelectorAll('.service-detail img').forEach(img=>{
-      img.src=img.src.replace(/[^/]+$/,'20260811_121255.webp');
-      img.alt='MGD skid loader auger drilling a hole for a post project';
-    });
-    const og=document.querySelector('meta[property="og:image"]');
-    if(og)og.content='https://mgdskidloader.com/assets/images/20260811_121255.webp';
-    const twitter=document.querySelector('meta[name="twitter:image"]');
-    if(twitter)twitter.content='https://mgdskidloader.com/assets/images/20260811_121255.webp';
-  }
 
   if(location.pathname.includes('/services/asphalt-concrete-removal/')){
     const primary=document.querySelector('.service-detail > img');
