@@ -1,8 +1,13 @@
 (()=>{
   document.querySelectorAll('[data-year]').forEach(el=>{el.textContent=new Date().getFullYear();});
 
-  const depth=location.pathname.split('/').filter(Boolean).length;
-  const asset=(path)=>`${'../'.repeat(depth)}assets/${path}`;
+  // Resolve dynamic assets from this script's own URL so paths work both at
+  // https://krhein06.github.io/mgd/ and at the production domain root.
+  const scriptUrl=document.currentScript?.src || [...document.scripts].map(s=>s.src).find(src=>src.includes('/assets/js/site.js'));
+  const assetsBase=scriptUrl ? new URL('../',scriptUrl) : new URL('assets/',location.href);
+  const asset=(path)=>new URL(path,assetsBase).href;
+  const canonicalHref=document.querySelector('link[rel="canonical"]')?.href;
+  const canonicalPath=canonicalHref ? new URL(canonicalHref).pathname : location.pathname;
 
   const style=document.createElement('style');
   style.textContent=`
@@ -29,8 +34,8 @@
   document.querySelectorAll('img').forEach(img=>{
     const match=Object.entries(imageFixes).find(([name])=>img.src.endsWith('/'+name));
     if(!match)return;
-    const [name,fix]=match;
-    img.src=img.src.slice(0,-name.length)+fix.file;
+    const [,fix]=match;
+    img.src=asset(`images/${fix.file}`);
     img.alt=fix.alt;
   });
 
@@ -79,16 +84,16 @@
     primary.replaceWith(wrap);
   };
 
-  if(location.pathname.includes('/services/building-site-readiness/')){
+  if(canonicalPath==='/services/building-site-readiness/'){
     beforeAfter('1000007587.webp','1000007590.webp','Building site before MGD preparation','Building site after MGD preparation');
   }
-  if(location.pathname.includes('/services/brush-debris-removal/')){
+  if(canonicalPath==='/services/brush-debris-removal/'){
     beforeAfter('brush-clearing-before.webp','brush-clearing-after.webp','Brush removal area before MGD clearing','Brush removal area after MGD clearing');
   }
-  if(location.pathname.includes('/services/stump-grinding/')){
+  if(canonicalPath==='/services/stump-grinding/'){
     beforeAfter('20250410_141942.webp','20250410_154755.webp','Stump before MGD stump grinding','Area after MGD stump grinding');
   }
-  if(location.pathname.includes('/services/shed-takedown-building-site-prep/')){
+  if(canonicalPath==='/services/shed-takedown-building-site-prep/'){
     const primary=document.querySelector('.service-detail > img');
     if(primary){
       const wrap=document.createElement('div');
@@ -106,16 +111,15 @@
       primary.replaceWith(wrap);
     }
   }
-  if(location.pathname.includes('/services/post-hole-drilling/')){
+  if(canonicalPath==='/services/post-hole-drilling/'){
     const primary=document.querySelector('.service-detail > img');
     if(primary){primary.src=asset('images/1000009864.webp');primary.alt='MGD skid loader auger drilling holes for a post project';}
   }
-  if(location.pathname.includes('/services/asphalt-concrete-removal/')){
-    const primary=document.querySelector('.service-detail > img');
-    if(primary) beforeAfter('1000009253.webp','1000009257.webp','Asphalt removal project before MGD work','Cleared and graded area after MGD asphalt removal');
+  if(canonicalPath==='/services/asphalt-concrete-removal/'){
+    beforeAfter('1000009253.webp','1000009257.webp','Asphalt removal project before MGD work','Cleared and graded area after MGD asphalt removal');
   }
 
-  if(depth===0){
+  if(canonicalPath==='/'){
     const headings=[...document.querySelectorAll('h2,h3')];
     const workHeading=headings.find(h=>h.textContent.toLowerCase().includes("see mgd's work"));
     const section=workHeading?.closest('section');
@@ -130,7 +134,7 @@
       const add=(label,file,alt)=>{
         const d=document.createElement('div');d.className='before-after-item';
         const b=document.createElement('span');b.className='before-after-label';b.textContent=label;
-        const i=document.createElement('img');i.src=asset(`images/${file}`);i.alt=alt;i.loading='lazy';
+        const i=document.createElement('img');i.src=asset(`images/${file}`);i.alt=alt;i.loading='lazy';i.decoding='async';
         d.append(b,i);return d;
       };
       grid.append(add('Before','1000009329.webp','Excavating area before MGD work'),add('After','1000009387.webp','Excavating area after MGD work'));
@@ -139,7 +143,7 @@
     }
   }
 
-  if(location.pathname.includes('/reviews/')){
+  if(canonicalPath==='/reviews/'){
     const grid=document.querySelector('.review-grid');
     const container=grid?.parentElement;
     if(container && !container.querySelector('.review-form-card')){
